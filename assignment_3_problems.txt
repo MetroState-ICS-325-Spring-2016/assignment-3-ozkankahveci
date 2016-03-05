@@ -14,7 +14,7 @@ SELECT COUNT(*) FROM `customers` WHERE `creditLimit` > 20000;
 
 2. What is the contact first name and contact last name for every contact that has a first name that starts with D?
 
-3. What are the customer names for every company that Leslie Tompson is a sales rep for?
+3. What are the customer names for every company that Leslie Thompson is a sales rep for?
 
 4. What was the amount for the last payment that Boards & Toys Co. made? (Should return only 1 field with the amount.)
 
