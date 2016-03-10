@@ -14,8 +14,25 @@ SELECT COUNT(*) FROM `customers` WHERE `creditLimit` > 20000;
 SELECT COUNT(*) FROM `customers` WHERE `country`= "Germany" ;
 '13';
 2. What is the contact first name and contact last name for every contact that has a first name that starts with D?
+SELECT * FROM customers WHERE contactFirstName like "D%" 
+'141', 'Euro+ Shopping Channel', 'Freyre', 'Diego ', '(91) 555 94 44', 'C/ Moralzarzal, 86', NULL, 'Madrid', NULL, '28034', 'Spain', '1370', '227600'
+'189', 'Clover Collections, Co.', 'Cassidy', 'Dean', '+353 1862 1555', '25 Maiden Lane', 'Floor No. 4', 'Dublin', NULL, '2', 'Ireland', '1504', '69400'
+'250', 'Lyon Souveniers', 'Da Silva', 'Daniel', '+33 1 46 62 7555', '27 rue du Colonel Pierre Avia', NULL, 'Paris', NULL, '75508', 'France', '1337', '68100'
+'256', 'Auto Associés & Cie.', 'Tonini', 'Daniel ', '30.59.8555', '67, avenue de l\'Europe', NULL, 'Versailles', NULL, '78000', 'France', '1370', '77900'
+'363', 'Online Diecast Creations Co.', 'Young', 'Dorothy', '6035558647', '2304 Long Airport Avenue', NULL, 'Nashua', 'NH', '62005', 'USA', '1216', '114200'
+'406', 'Auto Canal+ Petit', 'Perrier', 'Dominique', '(1) 47.55.6555', '25, rue Lauriston', NULL, 'Paris', NULL, '75016', 'France', '1337', '95000'
+'447', 'Gift Ideas Corp.', 'Lewis', 'Dan', '2035554407', '2440 Pompton St.', NULL, 'Glendale', 'CT', '97561', 'USA', '1323', '49700'
+
+
 
 3. What are the customer names for every company that Leslie Thompson is a sales rep for?
+SELECT 
+    customerName
+FROM
+    customers,employees
+WHERE 
+		
+jobTitle='Sales Rep' IN (SELECT lastName="Thompson" AND firstName="Leslie" )
 
 4. What was the amount for the last payment that Boards & Toys Co. made? (Should return only 1 field with the amount.)
 
