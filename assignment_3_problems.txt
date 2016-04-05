@@ -26,18 +26,21 @@ SELECT * FROM customers WHERE contactFirstName like "D%"
 
 
 3. What are the customer names for every company that Leslie Thompson is a sales rep for?
-SELECT 
-    customerName
-FROM
-    customers,employees
-WHERE 
-		
-jobTitle='Sales Rep' IN (SELECT lastName="Thompson" AND firstName="Leslie" )
+SELECT customerName
+from customers c Natural join employees e
+where e.lastname= "Thompson"  AND e.firstname="Leslie" and e.jobTitle= 'Sales Rep'
 
 4. What was the amount for the last payment that Boards & Toys Co. made? (Should return only 1 field with the amount.)
+SELECT p.amount
+from customers c Natural join payments p
+where c.customerName= "Boards & Toys Co."
+order by p.paymentDate DESC LIMIT 1
 
 5. How many payments have been made that are more than 20000? (Should return 1 field with the count.)
-
+SELECT COUNT(amount)
+from payments 
+Where amount > 20000
+	
 6. Write a PHP program that prints the following information to the terminal:
 The customer name, country, and sales rep name on one line per customer.
 Order the results by country first and customer name second.
@@ -57,3 +60,8 @@ Point breakdown for problem 6:
  5 points - correct data from the employees table
  5 points - order by country first
  5 points - order by customer name second
+ 
+ SQL QUERY: 
+SELECT customerName,country,concat(e.lastName ,e.firstName)
+FROM customers c Natural Join employees e 
+	
